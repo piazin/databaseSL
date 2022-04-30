@@ -1,7 +1,7 @@
 # databaseSL
 Aplicação para o registro de procedimentos, feitos no setor de T.I
 <p>Aplicação em desenvolvimento</p>
-https://piazin.github.io/infoSL/
+https://piazin.github.io/databaseSL/
 
 ### Tecnologias usadas
 
