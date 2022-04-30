@@ -28,7 +28,41 @@ app.use('/', categoriesControllers);
 app.use('/', docsControllers);
 
 app.get('/', (req, res)=>{
-    res.render('index');
+
+    Docs.findAll({
+        order:[
+            ['id','DESC']
+        ]
+    }).then(documents =>{
+
+        Category.findAll().then(categories =>{
+            res.render('index',{
+                documents: documents ,categories: categories
+            });
+        })
+        
+    });
+    
+});
+
+app.get('/:slug', (req,res)=>{
+    var slug = req.params.slug;
+
+    Docs.findOne({
+        where:{
+            slug: slug
+        }
+    }).then(documents => {
+        if(documents != undefined){
+            Category.findAll().then(categories => {
+                res.render('documents',{documents: documents, categories: categories});
+            });
+        } else{
+            res.redirect('/');
+        }
+    }).catch((err)=>{
+        res.redirect('/');
+    })
 });
 
 app.listen(8080, ()=>{console.log("server init")});
