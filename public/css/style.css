@@ -1,0 +1,14 @@
+.btn-float {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 50px;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-float ion icon {
+    font-size: 20px;
+}

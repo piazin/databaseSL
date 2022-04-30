@@ -1,0 +1,45 @@
+<%- include ('../../partials/header'); %>
+<body>
+    <%- include ('../../partials/navbar'); %>
+    <div class="container">
+        <div class="card my-3">
+            <div class="card-header">
+                <h3>Cadastro de Artigos</h3>
+            </div>
+            <div class="card-body">
+                <form action="/docs/save" method="post">
+                    <input type="text" class="form-control form-control-lg my-3" name="title" placeholder="qual o nome do arquivo?">
+                    <textarea name="body" class="form-control my-5" placeholder="escreva o artigo aqui" id="article"></textarea>
+                    <label class="form-label">Selecione uma categoria</label>
+                    <select name="category" class="form-select my-2">
+                        <option selected disabled>Escolha uma opção</option>
+                        <% categories.forEach((category)=>{ %>
+                            <option value="<%= category.id %>"><%= category.title %></option>
+                        <% }) %>     
+                    </select>
+                    <button class="btn btn-dark my-3" type="submit">Salvar</button>
+                </form>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+<%- include ('../../partials/footer'); %>
+<script src="/tinymce/tinymce.min.js"></script>
+
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: '#article',
+        plugins: [
+          'a11ychecker','advlist','advcode','advtable','autolink','checklist','export',
+          'lists','link','image','charmap','preview','anchor','searchreplace','visualblocks',
+          'powerpaste','fullscreen','formatpainter','insertdatetime','media','table','help','wordcount','printer',
+          'save', 'emoticons', 'save', 'table', 'paste'
+        ],
+        toolbar: 'undo redo | formatpainter casechange blocks | bold italic backcolor | ' +
+          'alignleft aligncenter alignright alignjustify | ' +
+          'bullist numlist checklist outdent indent | removeformat | a11ycheck code table help'
+      });
+</script>
