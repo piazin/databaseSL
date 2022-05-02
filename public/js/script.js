@@ -30,3 +30,10 @@ function btn_category_save(){
   timer: 1200
   })
 }
+
+
+function btnMenu() {
+  let menu = document.getElementById('menu-modal');
+
+  menu.classList.toggle('active');
+}

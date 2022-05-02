@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../categories/Category');
-const Article = require('./Docs');
 const slugify = require('slugify');
 const Docs = require('./Docs');
 
 //main
 router.get('/admin/docs', (req,res)=>{
-    Article.findAll({
+    Docs.findAll({
         include: [{model: Category}]
     }).then(documents => {
         res.render('admin/docs/index', {

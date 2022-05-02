@@ -24,17 +24,15 @@ app.use(bodyParser.json());
 app.set('view engine','ejs');
 app.use(express.static('public'));
 
-app.use('/', categoriesControllers);
-app.use('/', docsControllers);
 
 app.get('/', (req, res)=>{
-
+    
     Docs.findAll({
         order:[
             ['id','DESC']
         ]
     }).then(documents =>{
-
+        
         Category.findAll().then(categories =>{
             res.render('index',{
                 documents: documents ,categories: categories
@@ -47,7 +45,7 @@ app.get('/', (req, res)=>{
 
 app.get('/:slug', (req,res)=>{
     var slug = req.params.slug;
-
+    
     Docs.findOne({
         where:{
             slug: slug
@@ -64,5 +62,8 @@ app.get('/:slug', (req,res)=>{
         res.redirect('/');
     })
 });
+
+app.use('/', categoriesControllers);
+app.use('/', docsControllers);
 
 app.listen(8080, ()=>{console.log("server init")});
