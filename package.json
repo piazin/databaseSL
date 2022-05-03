@@ -1,5 +1,5 @@
 {
-  "name": "databasesl",
+  "name": "blog-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,10 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "bcryptjs": "^2.4.3",
+    "body": "^5.1.0",
     "ejs": "^3.1.7",
-    "express": "^4.18.1",
+    "express": "^4.18.0",
     "mysql2": "^2.3.3",
+    "parser": "^0.1.4",
     "sequelize": "^6.19.0",
     "slugify": "^1.6.5"
   }

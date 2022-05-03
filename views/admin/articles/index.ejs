@@ -1,0 +1,41 @@
+<%- include ('../../partials/header'); %>
+<body>
+    <%- include ('../../partials/navbar'); %>
+    <div class="container my-3">
+        <h2>Artigos</h2>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% articles.forEach(article => { %>
+                    <tr>
+                        <td><%= article.id %></td>
+                        <td><%= article.title %></td>
+                        <td><%= article.slug %></td>
+                        <td><%= article.category.title %></td>
+                        <td>
+                            <a href="/admin/articles/edit/<%= article.id %>" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
+                            <form method="post" action="/articles/delete" style="display: inline;" onsubmit="confirmDelete(event, this)">
+                                <input type="hidden" name="id" value="<%= article.id %>">
+                                <button class="btn btn-danger" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/admin/articles/new" class="btn-float"><ion-icon name="add-sharp"></ion-icon></a>
+</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/script.js"></script>
+<%- include ('../../partials/footer'); %>

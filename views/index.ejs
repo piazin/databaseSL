@@ -2,16 +2,23 @@
 <body>
     <%- include ('./partials/navbarhome'); %>
     <div class="container">
-        <% documents.forEach(document => { %>
+        <% articles.forEach(article => { %>
             <div class="card my-4">
                 <div class="card-header">
-                    <h3><%= document.title %></h3>
+                    <h3><%= article.title %></h3>
                 </div>
                 <div class="card-body">
-                    <a href="/<%= document.slug %>" class="btn btn-dark">Ler Artigo</a>
+                    <a href="/<%= article.slug %>" class="btn btn-dark">Ler Artigo</a>
                 </div>
             </div>
         <% }) %>
+        <nav>
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link mx-1" href="/articles/page/2">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </a></li>
+            </ul>
+        </nav>
     </div>
 </body>
 <%- include ('./partials/footer'); %>
