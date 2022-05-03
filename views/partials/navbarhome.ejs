@@ -13,7 +13,9 @@
     <details>
       <summary>Categorias</summary>
       <ul>
-        
+        <% categories.forEach(category => { %>
+          <li><a href="/category/<%= category.slug %>"><%= category.title %></a></li>
+        <% }) %>
       </ul>
     </details>
     

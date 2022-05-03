@@ -63,6 +63,23 @@ app.get('/:slug', (req,res)=>{
     })
 });
 
+app.get('/category/:slug', (req,res)=>{
+    var slug = req.params.slug;
+
+    Category.findOne({
+        where:{
+            slug:slug
+        },
+        include: [{model: Docs}]
+    }).then(category => {
+        if(category != undefined){
+            Category.findAll().then(categories =>{
+                res.render('index', {documents: category.documents, categories:categories})
+            })
+        }
+    })
+})
+
 app.use('/', categoriesControllers);
 app.use('/', docsControllers);
 

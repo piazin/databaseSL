@@ -1,14 +1,14 @@
 <%- include ('./partials/header'); %>
 <body>
-    <%- include ('./partials/navbar'); %>
+    <%- include ('./partials/navbarhome'); %>
     <div class="container">
-        <% documents.forEach(documents => { %>
+        <% documents.forEach(document => { %>
             <div class="card my-4">
                 <div class="card-header">
-                    <h3><%= documents.title %></h3>
+                    <h3><%= document.title %></h3>
                 </div>
                 <div class="card-body">
-                    <a href="/<%= documents.slug %>" class="btn btn-dark">Ler Artigo</a>
+                    <a href="/<%= document.slug %>" class="btn btn-dark">Ler Artigo</a>
                 </div>
             </div>
         <% }) %>
