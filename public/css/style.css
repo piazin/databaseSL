@@ -65,13 +65,12 @@
 }
 
 .nav-home-li a {
-  background-color: rgb(235, 235, 235);
-  box-shadow: 1px 1px 3px rgb(255, 255, 255);
+  box-shadow: 1px 1px 3px rgb(80, 80, 80);
   border-radius: 3px;
   border-top-left-radius: 10px;
   padding: 5px 10px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: white;
   font-weight: 600;
   transition: all 0.5s ease-in-out;
 }

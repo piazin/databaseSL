@@ -3,6 +3,7 @@ const router = express.Router();
 const Category = require('../categories/Category');
 const Article = require('./Article');
 const slugify = require('slugify');
+const { append } = require('express/lib/response');
 
 //main
 router.get('/admin/articles', (req,res)=>{
