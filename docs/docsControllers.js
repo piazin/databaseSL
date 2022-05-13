@@ -4,9 +4,10 @@ const Category = require('../categories/Category');
 const Article = require('./Docs');
 const slugify = require('slugify');
 const Docs = require('./Docs');
+const adminAuth = require('../middlewares/adminAuth');
 
 //main
-router.get('/admin/docs', (req,res)=>{
+router.get('/admin/docs', adminAuth,(req,res)=>{
     Article.findAll({
         include: [{model: Category}]
     }).then(documents => {
@@ -17,7 +18,7 @@ router.get('/admin/docs', (req,res)=>{
     
 });
 //new
-router.get('/admin/docs/new', (req,res)=>{
+router.get('/admin/docs/new', adminAuth,(req,res)=>{
 
     Category.findAll().then(categories => {
         res.render('admin/docs/new', {
@@ -59,7 +60,7 @@ router.post('/docs/delete', (req,res)=>{
     }
 });
 
-router.get('/admin/docs/edit/:id', (req,res)=>{
+router.get('/admin/docs/edit/:id', adminAuth,(req,res)=>{
     var id = req.params.id;
 
     Docs.findOne({

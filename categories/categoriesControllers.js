@@ -3,9 +3,10 @@ const express = require('express');
 const router = express.Router();
 const Category = require('./Category');
 const slugify = require('slugify');
+const adminAuth = require('../middlewares/adminAuth');
 
 //========rota principal=======//
-router.get('/admin/categories', (req, res)=>{
+router.get('/admin/categories', adminAuth,(req, res)=>{
 
     Category.findAll().then(categories => {
         res.render('admin/categories/index', {
@@ -18,7 +19,7 @@ router.get('/admin/categories', (req, res)=>{
 });
 
 //========rota para novo documento=======//
-router.get('/admin/categories/new', (req,res)=>{
+router.get('/admin/categories/new', adminAuth,(req,res)=>{
     res.render('admin/categories/new');
 });
 //========rota para salvar documento=======//
@@ -54,7 +55,7 @@ router.post('/categories/delete', (req,res)=>{
     })
 });
 //========rota para edição=======//
-router.get('/admin/categories/edit/:id', (req,res)=>{
+router.get('/admin/categories/edit/:id', adminAuth,(req,res)=>{
     var id = req.params.id;
 
     if(isNaN(id)){
