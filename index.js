@@ -1,13 +1,20 @@
 const express = require('express');
 const app = express();
+const session = require('express-session');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const connection = require('./database/database');
+
 const categoriesControllers = require('./categories/categoriesControllers');
-const docsControllers = require('./docs/docsControllers')
+const docsControllers = require('./docs/docsControllers');
+const userControllers = require('./admin/userControllers');
+
 const Category = require('./categories/Category');
 const Docs = require('./docs/Docs');
 
+app.use(session({
+    secret: 'umasenha', cookie: {maxAge: 3000000}
+}))
 
 connection
     .authenticate()
@@ -26,6 +33,7 @@ app.use(express.static('public'));
 
 app.use('/', categoriesControllers);
 app.use('/', docsControllers);
+app.use('/', userControllers);
 
 app.get('/', (req, res)=>{
 

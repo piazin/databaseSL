@@ -1,0 +1,39 @@
+<%- include ('../../partials/header'); %>
+<body>
+    <%- include ('../../partials/navbar'); %>
+    <div class="container my-3">
+        <h2>Usuários</h2>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+
+                <% users.forEach(user => { %>
+                    <tr>
+                        <th><%= user.id %></th>
+                        <th><%= user.email %></th>
+                        <th>
+                            <a href="/admin/categories/edit/<%= user.id %>" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
+                            <form method="post" action="/categories/delete" style="display: inline;" onsubmit="confirmDelete(event, this)">
+                                <input type="hidden" name="id" value="<%= user.id %>">
+                                <button class="btn btn-danger" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
+                            </form>
+                        </th>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/admin/users/create" class="btn btn-dark btn-float"><ion-icon name="add-sharp"></ion-icon></a>
+</body>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/js/script.js"></script>
+<%- include ('../../partials/footer'); %>

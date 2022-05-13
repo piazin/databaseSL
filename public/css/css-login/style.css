@@ -1,0 +1,128 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --font-color: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    overflow: hidden;
+}
+
+.box {
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    border-radius: 30px;
+    width: 600px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.box .card-login form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-control {
+    border: 2px solid transparent;
+    background-color: transparent;
+    border-bottom-color: var(--font-color);
+    line-height: 28px;
+    padding: .2rem 0;
+    outline: none;
+    color: var(--font-color);
+    transition: .3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 200px;
+}
+
+.form-control::placeholder {
+    color: var(--font-color);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #6AAFF1;
+    border-radius: 1rem;
+    padding: .2rem 1rem;
+}
+
+.form-control:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.card-img .img-blog {
+    width: 250px;
+    height: 250px;
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.6em 1.3em 0.6em 0.9em;
+    color: var(--font-color);
+    background: #6AAFF1;
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.btn-login svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-login span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.btn-login:hover {
+    opacity: 0.8;
+}
+
+.btn-login:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+.btn-login:hover span {
+    transform: translateX(7px);
+}
+
+.spaceship {
+    position: absolute;
+    bottom: -240px;
+    animation: spaceship-move 20s forwards 5s;
+}
+
+@keyframes spaceship-move {
+    to {
+        transform: translateY(-2000px);
+    }
+}
