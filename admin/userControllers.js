@@ -77,7 +77,11 @@ router.post('/authenticate', (req,res)=>{
 })
 
 router.get('/admin/panel', adminAuth,(req,res)=>{
-    res.send('tela de admin')
+    res.render('admin/panel')
+})
+
+router.get('/logout', (req,res)=>{
+    
 })
 
 module.exports = router;

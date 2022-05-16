@@ -115,14 +115,4 @@ body {
     transform: translateX(7px);
 }
 
-.spaceship {
-    position: absolute;
-    bottom: -240px;
-    animation: spaceship-move 20s forwards 5s;
-}
 
-@keyframes spaceship-move {
-    to {
-        transform: translateY(-2000px);
-    }
-}

@@ -30,3 +30,7 @@ function btn_category_save(){
   timer: 1200
   })
 }
+
+function btn_menu_panel() {
+
+}
