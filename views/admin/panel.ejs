@@ -11,14 +11,29 @@
     
 <main id="container">
     <div class="menu">
-        <h4>Admin</h4>
-
+        <h4>Config</h4>
+        <a href="/" class="options-admin"><ion-icon name="home-outline"></ion-icon></a>
         <a href="#" class="options-admin"><ion-icon name="construct-outline"></ion-icon></a>
         <a href="/logout" class="options-admin"><ion-icon name="log-out-outline"></ion-icon></a>
     </div>
-    <div class="box">
-        <p>teste</p>
-    </div>
+    <main id="box">
+        <h1>Admin Panel</h1>
+
+        <div class="container-admin">
+            <a href="/admin/categories" class="box-content">
+                <img src="/img/undraw_add_post_re_174w.svg" alt="add post">
+                <h2>Manage Categories</h2>
+            </a>
+            <a href="/admin/docs" class="box-content">
+                <img src="/img/undraw_add_post_re_174w.svg" alt="add post">
+                <h2>Manage articles</h2>
+            </a>
+            <a href="/admin/users" class="box-content">
+                <img src="/img/undraw_add_user_re_5oib.svg" alt="add post">
+                <h2>Manage users</h2>
+            </a>
+        </div>
+    </main>
 </main>
 
 </body>

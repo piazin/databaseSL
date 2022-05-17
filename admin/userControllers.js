@@ -76,12 +76,17 @@ router.post('/authenticate', (req,res)=>{
     })
 })
 
+router.post('/users/delete/', (req,res) =>{
+    
+})
+
 router.get('/admin/panel', adminAuth,(req,res)=>{
     res.render('admin/panel')
 })
 
 router.get('/logout', (req,res)=>{
-    
+    req.session.user = undefined;
+    res.redirect('/');
 })
 
 module.exports = router;

@@ -20,7 +20,7 @@
                         <th><%= user.id %></th>
                         <th><%= user.email %></th>
                         <th>
-                            <a href="/admin/categories/edit/<%= user.id %>" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
+                            <a href="/admin/users/edit/<%= user.id %>" class="btn btn-warning"><ion-icon name="create-outline"></ion-icon></a>
                             <form method="post" action="/categories/delete" style="display: inline;" onsubmit="confirmDelete(event, this)">
                                 <input type="hidden" name="id" value="<%= user.id %>">
                                 <button class="btn btn-danger" type="submit"><ion-icon name="trash-outline"></ion-icon></button>
